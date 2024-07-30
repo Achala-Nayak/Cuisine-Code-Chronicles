@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from'./cardList.module.css'
 
 const CardList = () => {
   return (
@@ -7,3 +8,4 @@ const CardList = () => {
 }
 
 export default CardList
+

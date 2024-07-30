@@ -1,24 +1,38 @@
-:root{
-    --bg:#F1E5D1;
-    --textColor:black;
-    --softBg:#f0f0f0;
-    --softTextColor:#626262;
+:root {
+  --bg: #F1E5D1;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
 }
 
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    max-width:100w;
-    overflow-x:hidden;
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dark {
+  --bg: #0f172a;
+  --textColor: #ddd;
+  --softBg: #1f273a;
+  --softTextColor: #a6a6a6;
+}
+
+.light {
+  --bg: #F1E5D1;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
 }
 .container{
     min-height: 100vh;
