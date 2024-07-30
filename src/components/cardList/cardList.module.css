@@ -1,3 +1,7 @@
-.conatiner{
+.container{
     flex:5;
+}
+
+.title{
+    margin:50px 0px;
 }
