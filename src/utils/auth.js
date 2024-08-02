@@ -20,3 +20,5 @@ export const authOptions={
       // ...add more providers here
     ],
   }
+
+  export const getAuthSession = () => getServerSession(authOptions);
