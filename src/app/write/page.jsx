@@ -25,8 +25,13 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
+    if (!file) return;
+    console.log("File changed:", file);
+    setIsUploading(true);
+
     const storage = getStorage(app);
     const upload = () => {
       const name = new Date().getTime() + file.name;
@@ -49,16 +54,22 @@ const WritePage = () => {
               break;
           }
         },
-        (error) => {},
+        (error) => {
+          console.error("Upload error:", error);
+          setIsUploading(false);
+        },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log("File available at", downloadURL);
             setMedia(downloadURL);
+            console.log("Media state set:", downloadURL);
+            setIsUploading(false);
           });
         }
       );
     };
 
-    file && upload();
+    upload();
   }, [file]);
 
   if (status === "loading") {
@@ -78,23 +89,34 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
+    // console.log("Submitting with media:", media);
     const res = await fetch("/api/posts", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         title,
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "tech", //If not selected, choose the general category
+        catSlug: catSlug || "food",
       }),
     });
 
+    // console.log("Response status:", res.status);
+
     if (res.status === 200) {
       const data = await res.json();
+      console.log("Created post:", data);
       router.push(`/posts/${data.slug}`);
+    } else {
+      console.error("Failed to create post");
+      const errorData = await res.json();
+      console.error("Error details:", errorData);
     }
   };
-
+ 
   return (
     <div className={styles.container}>
       <input
@@ -141,8 +163,12 @@ const WritePage = () => {
           placeholder="Share your story..."
         />
       </div>
-      <button className={styles.publish} onClick={handleSubmit}>
-        Publish
+      <button 
+        className={styles.publish} 
+        onClick={handleSubmit}
+        disabled={isUploading}
+      >
+        {isUploading ? 'Uploading...' : 'Publish'}
       </button>
     </div>
   );
