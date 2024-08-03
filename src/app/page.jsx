@@ -10,7 +10,8 @@ export default function Home({ searchParams }) {
 
   return (
     <div className={styles.container}>
-      <Featured />
+      <Featured  postSlug="welcome-to-cuisine-code-chronicles" />
+
       <CategoryList />
       <div className={styles.content}>
         <CardList page={page}/>
