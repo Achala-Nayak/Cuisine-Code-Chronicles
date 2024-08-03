@@ -92,3 +92,17 @@
       font-size: 18px;
     }
   }
+
+  .deleteButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .deleteButton:hover {
+    opacity: 0.8;
+  }
+  
