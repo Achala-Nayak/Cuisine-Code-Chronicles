@@ -1,8 +1,6 @@
-
+import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
-import { getAuthSession } from "@/utils/auth";
-
 
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
@@ -19,7 +17,7 @@ export const GET = async (req) => {
       ...(cat && { catSlug: cat }),
     },
   };
-  
+
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
