@@ -19,9 +19,9 @@ const fetchPostData = async (postSlug) => {
 
 const truncateText = (text, length) => {
   if (!text) return "";
-  let plainText = text.replace(/<[^>]*>/g, ''); // Remove HTML tags
+  let plainText = text.replace(/<[^>]*>/g, ''); 
   if (plainText.length <= length) return plainText;
-  return plainText.slice(0, length) + "..."; // Truncate text and add ellipsis
+  return plainText.slice(0, length) + "..."; 
 };
 
 const Featured = ({ postSlug }) => {
