@@ -1,4 +1,4 @@
-"use client"; // Ensure this is a client-side component
+"use client"; 
 
 import React, { useState, useEffect } from "react";
 import styles from "./featured.module.css";
