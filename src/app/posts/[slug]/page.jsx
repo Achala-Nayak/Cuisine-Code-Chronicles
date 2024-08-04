@@ -1,7 +1,7 @@
-import Menu from "@/components/Menu/Menu";
+import Menu from "@/components/menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
-import { format } from "date-fns"; // Import the format function from date-fns
+import { format } from "date-fns"; 
 
 const getData = async (slug) => {
   const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
