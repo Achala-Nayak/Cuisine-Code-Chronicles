@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 
 const fetchPostData = async (postSlug) => {
   // const res = await fetch(`http://localhost:3000/api/posts/${postSlug}`, {
-    const res = await fetch(`${window.location.origin}/api/posts/${postSlug}`, {
-    // const res = await fetch(` https://cuisine-code-chronicles.vercel.app/api/posts/${postSlug}`, {
+    // const res = await fetch(`${window.location.origin}/api/posts/${postSlug}`, {
+    const res = await fetch(` https://cuisine-code-chronicles.vercel.app/api/posts/${postSlug}`, {
    
     cache: "no-store",
   });
