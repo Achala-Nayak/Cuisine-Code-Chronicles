@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #F1E5D1;
   }
   
   .profile {
@@ -11,7 +10,6 @@
     flex-direction: row;
     max-width: 1200px;
     width: 100%;
-    background: #F1E5D1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
