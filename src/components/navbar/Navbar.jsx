@@ -10,6 +10,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.social}>
         <Image src="/logo.png" alt="logo" width={90} height={90} />
+       
       </div>
       <div className={styles.logo}>Cuisine & Code Chronicles</div>
       <div className={styles.links}>
