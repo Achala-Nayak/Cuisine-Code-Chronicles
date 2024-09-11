@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./write.module.css";
 import { useEffect, useState } from "react";
-import "react-quill/dist/quill.bubble.css";
+import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
@@ -91,7 +91,6 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    // console.log("Submitting with media:", media);
     const res = await fetch("/api/posts", {
       method: "POST",
       headers: {
@@ -105,8 +104,6 @@ const WritePage = () => {
         catSlug: catSlug || "food",
       }),
     });
-
-    // console.log("Response status:", res.status);
 
     if (res.status === 200) {
       const data = await res.json();
@@ -159,7 +156,7 @@ const WritePage = () => {
         )}
         <ReactQuill
           className={styles.textArea}
-          theme="bubble"
+          theme="snow"
           value={value}
           onChange={setValue}
           placeholder="Share your story..."
